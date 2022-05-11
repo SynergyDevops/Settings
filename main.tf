@@ -1,10 +1,10 @@
 locals {
   branch_protections = try([
     for b in local.branch_protections_v3 : merge({
-      branch                          = null
-      enforce_admins                  = null
-      require_conversation_resolution = null
-      require_signed_commits          = null
+      branch                          = main
+      enforce_admins                  = true
+      require_conversation_resolution = true
+      require_signed_commits          = true
       required_status_checks          = {}
       required_pull_request_reviews   = {}
       restrictions                    = {}
@@ -15,7 +15,7 @@ locals {
     for b in local.branch_protections :
     length(keys(b.required_status_checks)) > 0 ? [
       merge({
-        strict   = null
+        strict   = false
         contexts = []
     }, b.required_status_checks)] : []
   ]
@@ -27,8 +27,8 @@ locals {
         dismiss_stale_reviews           = true
         dismissal_users                 = []
         dismissal_teams                 = []
-        require_code_owner_reviews      = null
-        required_approving_review_count = null
+        require_code_owner_reviews      = false
+        required_approving_review_count = 2
     }, b.required_pull_request_reviews)] : []
   ]
 
