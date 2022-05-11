@@ -11,8 +11,8 @@ on:
 
 jobs:
   terraform:
-    runs-on: [self-hosted, x64, linux, research]
-    #runs-on: ubuntu-latest
+    #runs-on: [self-hosted, x64, linux, research]
+    runs-on: ubuntu-latest
     container:
       image: hashicorp/terraform
     #  image: .github/workflows/Dockerfile
