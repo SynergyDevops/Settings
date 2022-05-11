@@ -4,7 +4,7 @@
 # ---------------------------------------------------------------------------------------------------------------------
 
 variable "name" {
-  description = "(Required) The name of the repository."
+  description = "test3"
   type        = string
 }
 
