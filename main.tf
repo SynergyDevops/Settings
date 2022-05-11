@@ -47,7 +47,10 @@ locals {
 # Branch Protection
 # https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch_protection_v3
 # ---------------------------------------------------------------------------------------------------------------------
-
+provider "github" {
+  organization = "SynergyDevops"
+  #version = "~> 4.0"
+}
 resource "github_branch_protection_v3" "branch_protection" {
   count = length(local.branch_protections)
 
